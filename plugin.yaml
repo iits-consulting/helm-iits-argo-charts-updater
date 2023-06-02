@@ -1,5 +1,5 @@
 name: "iits-argo-charts-updater"
-version: "0.1.1"
+version: "0.1.2"
 usage: "Go into the Argo App of Apps Helm Chart and execute helm iits-argo-charts-updater"
 description: |-
   "Go into the Argo App of Apps Helm Chart and execute helm iits-argo-charts-updater"

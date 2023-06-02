@@ -18,4 +18,8 @@ cd infrastructure-charts
 helm iits-argo-charts-updater
 ```
 
+We would recommend to use this bash alias
 
+```shell
+alias chartUpdater="helm plugin update iits-argo-charts-updater && helm iits-argo-charts-updater"
+```

@@ -16,18 +16,15 @@
               "type": "string"
             },
             "targetRevision": {
-              "type": "string",
-              "const": "main"
+              "type": "string"
             },
             "parameters": {
               "type": "object",
               "additionalProperties": true
             }
-          },
-          "required": ["repoURL", "targetRevision", "parameters"]
+          }
         }
-      },
-      "required": ["helm"]
+      }
     },
     "charts": {
       "type": "object",
@@ -54,38 +51,13 @@
             "additionalProperties": true
           },
           "path": {
-            "type": "string",
-            "not": {
-              "if": {
-                "required": ["targetRevision"]
-              },
-              "then": {
-                "not": {
-                  "required": ["path"]
-                }
-              }
-            }
+            "type": "string"
           },
           "valueFile": {
             "type": "string"
           }
-        },
-        "allOf": [
-          {
-            "if": {
-              "required": ["valueFile"]
-            },
-            "then": {
-              "anyOf": [
-                {"required": ["targetRevision"]},
-                {"required": ["path"]}
-              ]
-            }
-          }
-        ],
-        "required": ["namespace"]
+        }
       }
     }
-  },
-  "required": ["projectValues", "global", "charts"]
+  }
 }
