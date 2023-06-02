@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "projectValues": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "global": {
+      "type": "object",
+      "properties": {
+        "helm": {
+          "type": "object",
+          "properties": {
+            "repoURL": {
+              "type": "string"
+            },
+            "targetRevision": {
+              "type": "string",
+              "const": "main"
+            },
+            "parameters": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "required": ["repoURL", "targetRevision", "parameters"]
+        }
+      },
+      "required": ["helm"]
+    },
+    "charts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string"
+          },
+          "repoURL": {
+            "type": "string"
+          },
+          "targetRevision": {
+            "type": "string"
+          },
+          "overrideChartName": {
+            "type": "string"
+          },
+          "disableAutoSync": {
+            "type": "boolean"
+          },
+          "parameters": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "path": {
+            "type": "string",
+            "not": {
+              "if": {
+                "required": ["targetRevision"]
+              },
+              "then": {
+                "not": {
+                  "required": ["path"]
+                }
+              }
+            }
+          },
+          "valueFile": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "required": ["valueFile"]
+            },
+            "then": {
+              "anyOf": [
+                {"required": ["targetRevision"]},
+                {"required": ["path"]}
+              ]
+            }
+          }
+        ],
+        "required": ["namespace"]
+      }
+    }
+  },
+  "required": ["projectValues", "global", "charts"]
+}

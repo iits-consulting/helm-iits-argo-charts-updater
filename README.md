@@ -1,2 +1,21 @@
-# helm-iits-argo-charts-updater
-Updates iits ArgoCD App of Apps Helm Charts to latest release
+# iits-consulting ArgoCD App of Apps Chart Updater
+
+## Description
+
+To use everytime the latest version across the projects we need to centralize it.
+If you execute the plugin inside the App-of-Apps Chart it will automatically update the files.
+
+It is designed for projects like this: https://github.com/iits-consulting/otc-infrastructure-charts-template
+
+
+## Usage
+
+
+```shell
+helm plugin install https://github.com/iits-consulting/helm-iits-argo-charts-updater
+cd infrastructure-charts
+# This will update the files
+helm iits-argo-charts-updater
+```
+
+
