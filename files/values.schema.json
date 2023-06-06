@@ -55,6 +55,9 @@
           },
           "valueFile": {
             "type": "string"
+          },
+          "preventDelete": {
+            "type": "boolean"
           }
         }
       }
