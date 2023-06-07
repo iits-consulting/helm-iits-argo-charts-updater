@@ -13,13 +13,9 @@ It is designed for projects like this: https://github.com/iits-consulting/otc-in
 
 ```shell
 helm plugin install https://github.com/iits-consulting/helm-iits-argo-charts-updater
+#We would recommend to put this also into your .bash_aliases
+alias chartUpdater="helm plugin update iits-argo-charts-updater && helm iits-argo-charts-updater"
 cd infrastructure-charts
 # This will update the files
-helm iits-argo-charts-updater
-```
-
-We would recommend to use this bash alias
-
-```shell
-alias chartUpdater="helm plugin update iits-argo-charts-updater && helm iits-argo-charts-updater"
+chartUpdater
 ```
