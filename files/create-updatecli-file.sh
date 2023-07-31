@@ -41,7 +41,7 @@ for chart_name in $chart_names; do
   # Create a yaml file with the chart name
   cat > updatecli/"$chart_name.yaml" <<EOL
 sources:
-  latestMinorRelease:
+  latestRelease:
     kind: helmChart
     spec:
       url: "https://charts.iits.tech"
