@@ -50,8 +50,8 @@ spec:
     {{- if $chartValues.overrideChartName }}
     chart: {{ $chartValues.overrideChartName }}
     {{- else}}
-    {{- if $.Values.global.path }}
-    path: {{ $.Values.global.path }}
+    {{- if $.Values.global.helm.path }}
+    path: {{ $.Values.global.helm.path }}
     {{- else }}
     chart: {{ $chartName }}
     {{- end}}
