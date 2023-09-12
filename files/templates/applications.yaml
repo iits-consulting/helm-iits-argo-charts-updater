@@ -47,12 +47,17 @@ spec:
   {{- if $chartValues.path }}
     path: {{ $chartValues.path }}
   {{- else }}
-   {{- if $chartValues.overrideChartName }}
+    {{- if $chartValues.overrideChartName }}
     chart: {{ $chartValues.overrideChartName }}
-   {{- else}}
+    {{- else}}
+    {{- if $.Values.global.path }}
+    path: {{ $.Values.global.path }}
+    {{- else }}
     chart: {{ $chartName }}
-   {{- end}}
+    {{- end}}
+   {{- end }}
   {{- end}}
+
 
   {{- if $chartValues.repoURL }}
     repoURL: {{ $chartValues.repoURL }}
