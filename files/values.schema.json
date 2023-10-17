@@ -65,7 +65,15 @@
           "parameters": {
             "type": "object",
             "additionalProperties": true,
-            "description": "A set of key-value pairs representing chart-specific configuration parameters."
+            "description": "A set of key-value pairs representing chart-specific configuration parameters. Max 10",
+            "maxProperties": 10,
+            "properties": {
+              "image.tag": {
+                "type": "string",
+                "additionalProperties": false,
+                "description": "Docker image version"
+              }
+            }
           },
           "path": {
             "type": "string",
