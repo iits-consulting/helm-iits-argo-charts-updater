@@ -83,6 +83,10 @@
             "type": "string",
             "description": "The local path to a values file to be used when deploying the chart."
           },
+          "annotations": {
+            "type": "object",
+            "description": "Add annotations to the argocd app"
+          },
           "preventDelete": {
             "type": "boolean",
             "description": "Boolean value that determines whether deletion of the deployed chart is prevented or allowed (default false)."
