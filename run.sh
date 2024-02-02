@@ -7,6 +7,6 @@ rm ./create-updatecli-file.sh
 
 #Add git hooks
 IITS_CHART_NAME=$(basename "$PWD")
-
+sed "s/IITS_CHART_NAME/${IITS_CHART_NAME}/g" $HELM_PLUGIN_DIR/files/git-hooks/template-pre-commit > $HELM_PLUGIN_DIR/files/git-hooks/pre-commit
+chmod +x $HELM_PLUGIN_DIR/files/git-hooks/pre-commit
 git config core.hooksPath $IITS_CHART_NAME/git-hooks
-chmod +x  ./git-hooks/pre-commit
