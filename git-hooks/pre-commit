@@ -1,6 +1,6 @@
 #!/bin/sh
 echo "Performing helm lint before push..."
-lint_output=$(helm lint infrastructure-charts)
+lint_command=$(helm lint IITS_CHART_NAME)
 lint_command_status=$?
 
 if [ $lint_command_status -eq 0 ]; then
