@@ -9,3 +9,4 @@ rm ./create-updatecli-file.sh
 IITS_CHART_NAME=$(basename "$PWD")
 
 git config core.hooksPath $IITS_CHART_NAME/git-hooks
+chmod +x  ./git-hooks/pre-commit
